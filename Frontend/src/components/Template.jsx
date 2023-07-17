@@ -69,12 +69,12 @@ const ProjectCard = ({
 const Template = () => {
   return (
     <>
-        <motion.div variants={textVariant()}>
-            <p className={styles.sectionSubText}>Our Template</p>
+        <motion.div variants={textVariant()} className='text-center mt-10'>
+            <p className={styles.sectionSubText}>Our Template.</p>
             <h2 className={styles.sectionHeadText}>Overview</h2>
         </motion.div>
         
-      <div className='mt-20 grid grid-cols-3 gap-5'>
+      <div className='mt-20 grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}

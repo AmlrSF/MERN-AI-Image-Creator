@@ -23,7 +23,12 @@ import {
   jobit,
   tripguide,
   threejs,
+  heroImg,heroImg1,heroImg2,heroImg3,heroImg4,heroImg5,heroImg6
+
 } from "../assets";
+
+
+
 
 const services = [
   {
@@ -39,8 +44,31 @@ const services = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+
     icon: creator,
+  },
+];
+
+const hero = [
+  {
+    icon: heroImg,
+  },
+  {
+    icon: heroImg1,
+  },
+  {
+    icon: heroImg2,
+  },
+  {
+    icon: heroImg3,
+    rows:2
+  },
+  {
+    icon: heroImg5,
+    cols:2
+  },
+  {
+    icon: heroImg6,
   },
 ];
 
@@ -262,5 +290,5 @@ export const navLinks = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, testimonials, projects, hero };
 

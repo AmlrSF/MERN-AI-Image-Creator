@@ -30,6 +30,15 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import heroImg from './hero/heroImg.png';
+import heroImg1 from './hero/heroImg1.png';
+import heroImg2 from './hero/heroImg2.png';
+import heroImg3 from './hero/heroImg3.png';
+import heroImg4 from './hero/heroImg4.png';
+import heroImg5 from './hero/heroImg5.png';
+import heroImg6 from './hero/heroImg6.png';
+
+
 export {
   logo,
   backend,
@@ -59,4 +68,11 @@ export {
   carrent,
   jobit,
   tripguide,
+  heroImg,
+  heroImg1,
+  heroImg2,
+  heroImg3,
+  heroImg4,
+  heroImg5,
+  heroImg6,
 };

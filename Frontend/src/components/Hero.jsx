@@ -8,9 +8,9 @@ const Hero = () => {
   return (
     <div className='relative z-0'>
         <section className={`relative w-full h-screen mx-auto`}>
-        <div
+        <div 
             className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto
-            ${styles.paddingX} flex flex-row items-start gap-5`}
+            flex flex-row items-start gap-5`}
             >
             <div>
                 <h1 className={`${styles.heroHeadText} text-white`}>
@@ -23,6 +23,7 @@ const Hero = () => {
                 <Link className='border-solid mt-5 border-2 sm:px-10 w-full border-[#915EFF] bg-[#915EFF] p-3 rounded' to="/Aimage">Try Aimage</Link>
             </div>
             
+
             </div>
         </section>
         <StarBalls />
