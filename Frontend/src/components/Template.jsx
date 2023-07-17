@@ -71,7 +71,7 @@ const Template = () => {
     <>
         <motion.div variants={textVariant()}>
             <p className={styles.sectionSubText}>Our Template</p>
-            <h2 className={styles.sectionHeadText}>Overview.</h2>
+            <h2 className={styles.sectionHeadText}>Overview</h2>
         </motion.div>
         
       <div className='mt-20 grid grid-cols-3 gap-5'>
