@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { Home } from "./pages";
+import { Home,SignIn,Login,ImageGenerator } from "./pages";
 import {Navbar} from './components';
 
 const  App = () => {
@@ -14,6 +14,18 @@ const  App = () => {
           <Route
             path="/"
             element={<Home />}
+          />
+          <Route
+            path="/Login"
+            element={<Login />}
+          />
+           <Route
+            path="/SignIn"
+            element={<SignIn />}
+          />
+          <Route
+            path="/AIimage"
+            element={<ImageGenerator />}
           />
         </Routes>
       </div>

@@ -62,10 +62,10 @@ const Navbar = () => {
 
         <ul  className='list-none hidden sm:flex flex-row gap-2' >
           <li>
-            <Link className='border-solid border-2 p-3 rounded border-[#915EFF]' to="/Signup">SignUp</Link>
+            <Link  className='border-solid border-2 p-3 rounded border-[#915EFF]' to="/Signin">SignUp</Link>
           </li>
           <li >
-            <Link className='bg-[#915EFF] p-3 border-solid border-2 border-[#915EFF] rounded' to="/tryAi">Try Aimage</Link>
+            <Link  className='bg-[#915EFF] p-3 border-solid border-2 border-[#915EFF] rounded' to="/Login">Login</Link>
           </li>
         </ul>
 
@@ -82,7 +82,8 @@ const Navbar = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 bg-primary  border-[#915EFF] border-solid border-2 absolute top-20 right-0 mx-4 my-2 min-w-[340px] z-10 rounded-xl`}
+            } p-6 bg-primary  border-[#915EFF] border-solid
+             border-2 absolute top-20 right-0 left-0 mx-4 my-2 w-full] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (

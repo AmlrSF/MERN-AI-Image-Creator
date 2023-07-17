@@ -1,29 +1,32 @@
 import React from 'react';
 import { styles } from '../styles';
+import { Link } from 'react-router-dom';
+import StarBalls from '../canvas/balls';
 
 const Home = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
-      <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto
-         ${styles.paddingX} flex flex-row items-start gap-5`}
-        >
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
+    <div className='relative z-0'>
+      <section className={`relative w-full h-screen mx-auto`}>
+        <div
+          className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto
+          ${styles.paddingX} flex flex-row items-start gap-5`}
+          >
+            <div>
+              <h1 className={`${styles.heroHeadText} text-white`}>
+                Hi, Try our <span className='text-[#915EFF]'>Ai images Generator</span>
+              </h1>
+              <p className={`${styles.heroSubText} mt-2 mb-10 text-white-100`}>
+                Experience the pinnacle of visual excellence  <br className='sm:block hidden' />
+                with our cutting-edge  AI Image Generator where artistry and technology converge seamlessly!
+              </p>
+              <Link className='border-solid mt-5 border-2 sm:px-10 w-full border-[#915EFF] bg-[#915EFF] p-3 rounded' to="/AIimage">Try Aimage</Link>
+            </div>
+          
+          </div>
+      </section>
+      <StarBalls />
+    </div>
 
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, Try our <span className='text-[#915EFF]'>fantastic Ai images</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and web applications
-          </p>
-        </div>
-</div>
-    </section>
   )
 }
 
