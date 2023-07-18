@@ -23,31 +23,11 @@ import {
   jobit,
   tripguide,
   threejs,
-  heroImg,heroImg1,heroImg2,heroImg3,heroImg4,heroImg5,heroImg6
+  heroImg,heroImg1,heroImg2,heroImg3,heroImg4,heroImg5,heroImg6,
+  V1,V2,V3
 
 } from "../assets";
 
-
-
-
-const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-
-    icon: creator,
-  },
-];
 
 const hero = [
   {
@@ -129,56 +109,23 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
+    title: "write a prompt",
+    setp: "First Step",
+    icon: V1,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
+    points: "Yuga Labs, the team behind the BAYC NFT collection, went further by creating MAYC. With an already established team and clear goals, this project is destined for success. There are 20,000 MAYC NFTs, which are traded for around 10.8 ETH ($12,800)."
+  },{
+    title: "Choose what to print",
+    setp: "Second Step",
+    icon: V2,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
+    points: "Yuga Labs, the team behind the BAYC NFT collection, went further by creating MAYC. With an already established team and clear goals, this project is destined for success. There are 20,000 MAYC NFTs, which are traded for around 10.8 ETH ($12,800). Not bad, considering that we are in the worst bear market in the last five years."
+  }, {
+    title: "Order your art",
+    setp: "Third Step",
+    icon: V3,
+    iconBg: "#383E56",
+    points: "Owning land in the real world can be expensive, so why not transition to the Metaverse? The Otherside NFT collection is one of the most extensive in the world of NFTs. Considering it has over 99,000 NFTs, it’s crazy to think that the floor price per Otherside NFT stands at 1.10 ETH ($1,300), which is more than the late 2022 price of Ethereum! ."
   },
 ];
 
@@ -277,8 +224,8 @@ const projects = [
 
 export const navLinks = [
   {
-    id: "Blogs",
-    title: "Blogs",
+    id: "Process",
+    title: "Process",
   },
   {
     id: "Template",
@@ -290,5 +237,5 @@ export const navLinks = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects, hero };
+export { technologies, experiences, testimonials, projects, hero };
 

@@ -9,8 +9,8 @@ const Wrapper = (Component, idName) =>
         id={idName}
         initial='hidden'
         whileInView='show'
-        viewport={{ once: false, amount: 0.25 }}
-        className={`max-w-7xl mx-auto relative z-0`}
+        viewport={{ once: true, amount: 0.25 }}
+        className={`max-w-7xl mx-auto w-[92%] relative z-0`}
       >
         <Component/>
       </motion.section>

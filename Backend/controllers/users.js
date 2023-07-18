@@ -1,0 +1,110 @@
+const user = require('../schema/users');
+const {validationResult}  = require('express-validator');
+const bycrpt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const register = async(req,res)=>{
+    let {password,username,email} = req.body;    
+    
+    try {
+        const validatorsResultErorrs = validationResult(req);
+        if(!validatorsResultErorrs.isEmpty()){
+            return res.status(400).json({
+                success:false,
+                errors : validatorsResultErorrs.array()
+            })
+        }
+
+        const userExist = await user.findOne({email});
+        if(userExist){
+            return res.status(400).send({
+                "errors": [
+                        {
+                            "type": "email",
+                            "value":email,
+                            "msg": "this user already exists",
+                        }
+                ]
+                
+            })
+        }
+
+        const saltRounds = 10;
+        const hashedpass = await bycrpt.hash(password, saltRounds);
+
+        const servedUser = await user.create({
+            username,
+            email,
+            password:hashedpass
+        })
+
+        res.json({
+            succes:true,user:servedUser
+        })
+
+    } catch (error) {
+        res.status(500).json(
+            {
+                success:false,
+                message:"internal server error"
+            }
+        );
+    }
+}
+const Login = async(req,res)=>{
+    const {email,password} = req.body;
+    try {
+        let MatchUser = await user.findOne({email}); 
+
+        if(!MatchUser) return res.status(400).send({
+            "errors": [
+                    {
+                        "type": "email",
+                        "value":email,
+                        "msg": "sry, there no user by this credentials",
+                    }
+            ]
+        })
+        let matched =  await bycrpt.compare(password,MatchUser.password);
+        if(!matched){
+            return res.status(400).send({
+                "errors": [
+                        {
+                            "type": "password",
+                            "value":password,
+                            "msg": "invalid Password",
+                        }
+                ]
+            })
+        }else{
+             //genrate token 
+        const token  = jwt.sign({
+                id:MatchUser._id,
+                username:MatchUser.username
+                },
+                process.env.secretKey,
+                {
+            expiresIn: "1h"
+            
+            },(err,token)=>{
+                if(err)throw err;
+                res.json({succes:true,user:MatchUser,token})
+            })  
+       }
+        
+    } catch (error) {
+        res.status(500).json(
+            {
+                success:false,
+                message:"internal server error"
+            }
+        );
+    }
+}
+
+
+module.exports =  {
+    register,
+    Login
+}

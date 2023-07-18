@@ -9,7 +9,7 @@ const Hero = () => {
     <div className='relative z-0'>
         <section className={`relative w-full h-screen mx-auto`}>
         <div 
-            className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto
+            className={`absolute inset-0 top-[120px] w-[92%] max-w-7xl mx-auto
             flex flex-row items-start gap-5`}
             >
             <div>

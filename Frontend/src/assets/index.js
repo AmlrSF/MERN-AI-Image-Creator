@@ -38,8 +38,14 @@ import heroImg4 from './hero/heroImg4.png';
 import heroImg5 from './hero/heroImg5.png';
 import heroImg6 from './hero/heroImg6.png';
 
+import V1 from './v1.png';
+import V2 from './V2.png';
+import V3 from './v3.png';
 
 export {
+  V1,
+  V2,
+  V3,
   logo,
   backend,
   creator,
