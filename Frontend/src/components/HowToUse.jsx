@@ -51,13 +51,13 @@ const ExperienceCard = ({ experience }) => {
 const HowToUse = () => {
   return (
     <>
-      <motion.div variants={textVariant()} className="text-center mt-10"> 
+      <motion.div variants={textVariant()} className="text-center mt-10 text-center"> 
 
-        <h2 className={`${styles.sectionHeadText} text-center`}>
+        <h2 className={`${styles.sectionHeadText} `}>
         The process
         </h2>
 
-        <p className={`${styles.sectionSubText} text-center`}>
+        <p className={`${styles.sectionSubText} `}>
           this diagram below will showcase how easy it is 
           to create <br /> your own art and have it shipped to your house
         </p>
