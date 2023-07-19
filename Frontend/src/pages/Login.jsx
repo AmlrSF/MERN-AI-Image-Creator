@@ -66,6 +66,7 @@ const Login = () => {
     <section className={`relative h-screen flex items-center justify-center`}>
       <motion.div initial={{x:-100,opacity:0}} transition={{ duration: 0.6,type:"spring",delay:0.3 ,times: [0, 0.2, 1] }} animate={{x:0,opacity:1}}
       className='bg-black-100 p-8 rounded-2xl w-[350px]' >
+        <ToastContainer />
         <h3 className={`${styles.sectionHeadText} text-center`}>Login.</h3>
         <form
           ref={formRef}

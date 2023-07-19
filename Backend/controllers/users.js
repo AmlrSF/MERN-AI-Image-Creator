@@ -85,7 +85,7 @@ const Login = async(req,res)=>{
                 },
                 process.env.secretKey,
                 {
-            expiresIn: "1h"
+            expiresIn: "10h"
             
             },(err,token)=>{
                 if(err)throw err;
@@ -103,8 +103,35 @@ const Login = async(req,res)=>{
     }
 }
 
+const getUser = async (req, res)=>{
+    const userId = req.id;
+    // console.log(userId);
+    try {
+        const profileUser = await user.findOne({_id:userId})
+        if(!profileUser){
+            return res.status(404).json({
+                succes:false,
+                message:"user not found",
+            })
+        }
+
+        return res.status(200).send({
+            succes:true,
+            message:"user found",
+            user:profileUser
+        })
+    } catch (error) {
+        res.status(500).json(
+            {
+                success:false,
+                message:"internal server error"
+            }
+        );
+    }
+}
 
 module.exports =  {
     register,
-    Login
+    Login,
+    getUser
 }
