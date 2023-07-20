@@ -11,7 +11,10 @@ const SignIn = () => {
     username: "",
     email: "",
     password: "",
+    
   });
+
+  
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -25,7 +28,7 @@ const SignIn = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...form }),
+        body: JSON.stringify({ ...form ,date: new Date()}),
       });
 
         const result = await response.json();

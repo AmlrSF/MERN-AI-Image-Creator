@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { Home,SignIn,Login,ImageGenerator } from "./pages";
+import { Home,SignIn,Login,ImageGenerator,Profile } from "./pages";
 import {Navbar} from './components';
 import { UserContextProvider } from "./context/context";
 const  App = () => {
@@ -7,12 +7,15 @@ const  App = () => {
     <>
     <BrowserRouter>
       <UserContextProvider>
-        
           <div className="relative z-0 bg-primary">
             <Routes>
               <Route
                 path="/"
                 element={<Home />}
+              />
+               <Route
+                path="/Profile/:id"
+                element={<Profile />}
               />
               <Route
                 path="/Login"

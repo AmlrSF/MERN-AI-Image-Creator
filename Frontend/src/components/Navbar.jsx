@@ -13,12 +13,13 @@ import MenuItem from '@mui/material/MenuItem';
 import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-const Navbar = () => {
+const Navbar = ({noList}) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const {setData,data} = useContext(userContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  
   const navigate = useNavigate();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,7 +61,6 @@ const Navbar = () => {
                 navigate('/Login')
               }else{
                 setData(res.user);
-                console.log(data);
               }
             })
 
@@ -70,7 +70,6 @@ const Navbar = () => {
     })();
   },[])
 
-  console.log(data);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -80,7 +79,7 @@ const Navbar = () => {
     const handleMenuClick = (event) => {
       setMenuBar(event.currentTarget);
     };
-    const handleMenuClose = () => {
+    const handleMenuClose = (status) => {
       setMenuBar(null);
     };
 
@@ -91,7 +90,10 @@ const Navbar = () => {
       setMenuBar(null);
     }
 
-    console.log(data);
+    const handleProfile = ()=>{
+      console.log('fffS');
+      navigate(`/Profile/${data?._id}`)
+    }
 
   return (
     <>
@@ -117,8 +119,8 @@ const Navbar = () => {
             <span className='text-[22px] text-[#915EFF] font-bold'>AI</span> image
           </p>
         </Link>
-
-        <ul className='list-none hidden sm:flex flex-row gap-5'>
+          
+        {!noList &&   <ul className='list-none hidden sm:flex flex-row gap-5'>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -130,7 +132,7 @@ const Navbar = () => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
-        </ul>
+        </ul>}
 
         {data === undefined ?  
         <ul  className='list-none sm:flex hidden  flex-row gap-2' >
@@ -191,7 +193,7 @@ const Navbar = () => {
                   'aria-labelledby': 'basic-button',
                 }}
               >
-                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={handleProfile}><Link to={`/Profile/${data?._id}`} >Profile</Link></MenuItem>
                 <MenuItem onClick={handleMenuClose}>My account</MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </Menu>
@@ -269,7 +271,7 @@ const Navbar = () => {
                       'aria-labelledby': 'basic-button',
                     }}
                   >
-                    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+                    <MenuItem onClick={handleMenuClose}><Link to={`/Profile/${data?._id}`} >Profile</Link></MenuItem>
                     <MenuItem onClick={handleMenuClose}>My account</MenuItem>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                   </Menu>
