@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { Home,SignIn,Login,ImageGenerator,Profile, EditPage } from "./pages";
+import { Home,SignIn,Login,ImageGenerator,Profile, EditPage, Browse } from "./pages";
 import {Navbar} from './components';
 import { UserContextProvider } from "./context/context";
 const  App = () => {
@@ -32,6 +32,10 @@ const  App = () => {
               <Route 
                 path="/Profile/edit/:id"
                 element={<EditPage />}
+              />
+              <Route 
+                path="/browse"
+                element={<Browse />}
               />
             </Routes>
           </div>

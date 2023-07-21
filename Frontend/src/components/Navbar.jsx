@@ -69,7 +69,7 @@ const Navbar = ({noList}) => {
         }
     })();
   },[])
-  console.log(data);
+  // console.log(data);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -120,7 +120,12 @@ const Navbar = ({noList}) => {
           </p>
         </Link>
           
-        {!noList &&   <ul className='list-none hidden sm:flex flex-row gap-5'>
+        {!noList &&   <ul className='list-none hidden md:flex flex-row gap-5'>
+        <Link 
+              className={`${
+                active === 'browse'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('browse')} to='/Browse' >Browse</Link>
           {navLinks.map((nav) => (
             <li
               key={nav.id}
@@ -132,10 +137,11 @@ const Navbar = ({noList}) => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
+      
         </ul>}
 
-        {data === undefined ?  
-        <ul  className='list-none sm:flex hidden  flex-row gap-2' >
+        {data === null ?  
+        <ul  className='list-none md:flex hidden  flex-row gap-2' >
           <li>
             <Link  className='border-solid border-2 p-3 rounded border-[#915EFF]' to="/Signin">SignUp</Link>
           </li>
@@ -144,7 +150,7 @@ const Navbar = ({noList}) => {
           </li>
         </ul>
         :
-          <div className='hidden sm:flex  align-items gap-1'>
+          <div className='hidden md:flex  align-items gap-1'>
               
             {data?.regStatus === 0 ? 
               <div>
@@ -205,7 +211,7 @@ const Navbar = ({noList}) => {
 
 
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='md:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
             alt='menu'
@@ -220,6 +226,12 @@ const Navbar = ({noList}) => {
              border-2 absolute flex-col top-20 right-0 left-0 mx-4 my-2  z-10 rounded-xl`}
           >
               <ul className='list-none flex justify-end items-start mb-3 flex-1 flex-col gap-4'>
+              <Link 
+              className={`${
+                active === 'browse'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('browse')} to='/Browse' >Browse</Link>
+
                 {navLinks.map((nav) => (
                   <li
                     key={nav.id}
@@ -234,12 +246,12 @@ const Navbar = ({noList}) => {
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   </li>
                 ))}
-
+           
               </ul>
             
               <div>
                 {
-                  data === undefined ?  
+                  data === null ?  
 
                   <div className='flex gap-2'>
                     <Link className='border-solid border-2 border-[#915EFF] p-3 rounded ' to="/SignIn">SignUp</Link>
