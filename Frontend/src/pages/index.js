@@ -5,6 +5,7 @@ import ImageGenerator from './ImageGenerator';
 import Profile from './Profile';
 import EditPage from './EditPage';
 import Browse from './Browse';
+import Create from './Create';
 export{
     Home,
     Login,
@@ -12,5 +13,6 @@ export{
     ImageGenerator,
     Profile,
     EditPage,
-    Browse
+    Browse,
+    Create
 }

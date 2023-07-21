@@ -234,7 +234,7 @@ export const navLinks = [
   {
     id: "About",
     title: "About",
-  },
+  }
 ];
 
 export { technologies, experiences, testimonials, projects, hero };

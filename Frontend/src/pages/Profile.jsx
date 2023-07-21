@@ -35,7 +35,7 @@ const Profile = () => {
   return (
         <div className='relative z-0 bg-primary'>
             <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-                <Navbar noList />
+                <Navbar noList secondList />
             </div>
         <section className='min-h-screen w-screen pt-[100px]'>
             <div className='max-w-7xl mx-auto w-[92%]  z-0`'>

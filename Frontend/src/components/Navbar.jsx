@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MailIcon from '@mui/icons-material/Mail';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
-const Navbar = ({noList}) => {
+const Navbar = ({noList,secondList}) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -137,9 +137,25 @@ const Navbar = ({noList}) => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
-      
-        </ul>}
 
+          
+              
+        </ul>}
+        {noList && <ul className='list-none hidden md:flex flex-row gap-5'>
+          <Link 
+              className={`${
+                active === 'browse'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('browse')} to='/Browse' >Browse</Link>
+
+          <Link 
+              className={`${
+                active === 'Create'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('Create')} to='/Create' >Create</Link>
+              
+            </ul>
+            }
         {data === null ?  
         <ul  className='list-none md:flex hidden  flex-row gap-2' >
           <li>
@@ -225,30 +241,45 @@ const Navbar = ({noList}) => {
             } p-6 bg-primary  border-[#915EFF] border-solid
              border-2 absolute flex-col top-20 right-0 left-0 mx-4 my-2  z-10 rounded-xl`}
           >
-              <ul className='list-none flex justify-end items-start mb-3 flex-1 flex-col gap-4'>
-              <Link 
+            
+
+
+              {!noList &&   <ul className='list-none flex justify-end items-start mb-3 flex-1 flex-col gap-4'>
+        <Link 
+              className={`${
+                active === 'browse'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('browse')} to='/Browse' >Browse</Link>
+          {navLinks.map((nav) => (
+            <li
+              key={nav.id}
+              className={`${
+                active === nav.title ? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive(nav.title)}
+            >
+              <a href={`#${nav.id}`}>{nav.title}</a>
+            </li>
+          ))}
+
+          
+              
+        </ul>}
+        {noList && <ul className='list-none flex justify-end items-start mb-3 flex-1 flex-col gap-4'>
+          <Link 
               className={`${
                 active === 'browse'? "text-white" : "text-secondary"
               } hover:text-white text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive('browse')} to='/Browse' >Browse</Link>
 
-                {navLinks.map((nav) => (
-                  <li
-                    key={nav.id}
-                    className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                      active === nav.title ? "text-white" : "text-secondary"
-                    }`}
-                    onClick={() => {
-                      setToggle(!toggle);
-                      setActive(nav.title);
-                    }}
-                  >
-                    <a href={`#${nav.id}`}>{nav.title}</a>
-                  </li>
-                ))}
-           
-              </ul>
-            
+          <Link 
+              className={`${
+                active === 'Create'? "text-white" : "text-secondary"
+              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive('Create')} to='/Create' >Create</Link>
+              
+            </ul>
+            }
               <div>
                 {
                   data === null ?  
