@@ -69,7 +69,7 @@ const Navbar = ({noList}) => {
         }
     })();
   },[])
-
+  console.log(data);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -181,7 +181,9 @@ const Navbar = ({noList}) => {
                   {data?.Fullname ? data.Fullname : `Guest_${data?._id?.slice(1,6)}`}
                 </span>
                 <div className='bg-[#915EFF] relative h-[35px] w-[35px] rounded-[50%]'>
-                  <img className='h-full rounded-[50%] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] w-full' src={noUser} />
+                  <img className='h-full rounded-[50%] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] w-full'
+                    src={data?.avatar ? data?.avatar  :  noUser}
+                  />
                 </div>
               </Button>
               <Menu

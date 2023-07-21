@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {register,Login,getUser,getSingleUser} = require('../controllers/users');
+const {register,Login,getUser,getSingleUser,EditProfile} = require('../controllers/users');
 const {check} = require('express-validator');
 const {authorize} = require('../auth/index');
 
@@ -13,5 +13,6 @@ router.route('/register').post([
 router.route('/Login').post(Login);
 router.route('/user').post(authorize, getUser);
 router.route('/user/:id').get(getSingleUser);
+router.route('/user/edit/:id').put(EditProfile);
 
 module.exports = router;

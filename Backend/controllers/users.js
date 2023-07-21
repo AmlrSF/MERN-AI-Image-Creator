@@ -3,6 +3,14 @@ const {validationResult}  = require('express-validator');
 const bycrpt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const cloudinary = require('cloudinary').v2;
+
+         
+cloudinary.config({ 
+  cloud_name: 'dwsb4wnhn', 
+  api_key: '369441825263223', 
+  api_secret: 'AwoR08f77vI5MgphE75z2jeYnC0' 
+});
 
 const register = async(req,res)=>{
     let {password,username,email,date} = req.body;    
@@ -143,9 +151,56 @@ const getSingleUser = async(req,res) =>{
    }
 }
 
+const EditProfile = async(req,res)=>{
+    let {
+        username,
+        email,
+        birthDate,
+        bio,
+        avatar ,
+        Fullname,
+        password
+    }= req.body;
+    let {id} = req.params;
+    
+    const photoUrl = await cloudinary.uploader.upload(avatar);
+
+    const update = {
+        username,
+        email,
+        Fullname,
+        bio,
+        avatar : photoUrl.url,
+        birthDate
+     };
+
+     
+
+
+    try {
+        let MatchUser = await user.findOne({_id:id}); 
+        
+        let Matched = await bycrpt.compare(password,MatchUser.password);
+        console.log(Matched);
+        if(!Matched) return res.status(400).send({
+            success:false,
+            msg: "invalid Password",
+        })
+        const updatedUser = await user.findOneAndUpdate({_id:id}, update);
+
+        res.status(200).json({succes:true,msg:'the user is edited succesfully',updatedUser});
+        // console.log(updatedUser);
+        
+        
+    }catch  (error) {
+        res.status(400).json({succes:false,msg:'internal server error'});
+    }
+}
+
 module.exports =  {
     register,
     Login,
     getUser,
-    getSingleUser
+    getSingleUser,
+    EditProfile
 }

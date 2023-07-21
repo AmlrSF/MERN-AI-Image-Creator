@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { Home,SignIn,Login,ImageGenerator,Profile } from "./pages";
+import { Home,SignIn,Login,ImageGenerator,Profile, EditPage } from "./pages";
 import {Navbar} from './components';
 import { UserContextProvider } from "./context/context";
 const  App = () => {
@@ -28,6 +28,10 @@ const  App = () => {
               <Route
                 path="/AIimage"
                 element={<ImageGenerator />}
+              />
+              <Route 
+                path="/Profile/edit/:id"
+                element={<EditPage />}
               />
             </Routes>
           </div>

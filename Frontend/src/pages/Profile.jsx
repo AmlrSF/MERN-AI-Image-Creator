@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {motion} from 'framer-motion';
 import noUser from '../assets/noUser.jpg';
 import { styles } from '../styles';
+
 const Profile = () => {
     const [userInfo,setUserInfo] = useState(null);
     const {setData,data} = useContext(userContext);
@@ -24,6 +25,7 @@ const Profile = () => {
                 setUserInfo(userInformation);
                 console.log(userInfo);
             } catch (error) {
+                console.log();
             }
         }
       
@@ -31,10 +33,10 @@ const Profile = () => {
 
 
   return (
-    <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-            <Navbar noList />
-        </div>
+        <div className='relative z-0 bg-primary'>
+            <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+                <Navbar noList />
+            </div>
         <section className='min-h-screen w-screen pt-[100px]'>
             <div className='max-w-7xl mx-auto w-[92%]  z-0`'>
                 <motion.div 
@@ -45,9 +47,9 @@ const Profile = () => {
                 >
                 <div className='profile-img '>
                     <div className=' h-[150px] mx-auto overflow-hidden rounded-full w-[150px] border-8 border-primary'>
-                        <img className='w-full h-full rounded-full' src={userInfo?.user?.avatar ?userInfo?.user?.avatar  :  noUser} />
+                        <img className='w-full h-full rounded-full' src={userInfo?.user[0]?.avatar ? userInfo?.user[0]?.avatar  :  noUser} />
                     </div>
-                    <button className='bg-[#915EFF] p-3 w-full mt-5 border-solid border-2 border-[#915EFF] z-2 rounded'>Edit Profile</button>
+                    <button onClick={()=>navigate(`/Profile/edit/${data?._id}`)} className='bg-[#915EFF] p-3 w-full mt-5 border-solid border-2 border-[#915EFF] z-2 rounded'>Edit Profile</button>
                 </div>
                 <div>
                     <h2 className={`text-[25px] font-bold text-[#915EFF]`}> {userInfo?.user[0]?.Fullname ? userInfo.user[0].Fullname : `Guest_${data?._id?.slice(1,6)}`}</h2>

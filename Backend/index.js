@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const users = require('./routes/route');
 
-//middleawre
+// middleawre functions
 app.use(express.json({limit:'50mb'}));
 app.use(cors())
 
