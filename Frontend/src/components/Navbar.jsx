@@ -94,7 +94,6 @@ const Navbar = ({noList,secondList}) => {
       console.log('fffS');
       navigate(`/Profile/${data?._id}`)
     }
-
   return (
     <>
 
@@ -156,7 +155,7 @@ const Navbar = ({noList,secondList}) => {
               
             </ul>
             }
-        {data === null ?  
+        {data === undefined ?  
         <ul  className='list-none md:flex hidden  flex-row gap-2' >
           <li>
             <Link  className='border-solid border-2 p-3 rounded border-[#915EFF]' to="/Signin">SignUp</Link>
@@ -282,7 +281,7 @@ const Navbar = ({noList,secondList}) => {
             }
               <div>
                 {
-                  data === null ?  
+                  data === undefined ?  
 
                   <div className='flex gap-2'>
                     <Link className='border-solid border-2 border-[#915EFF] p-3 rounded ' to="/SignIn">SignUp</Link>

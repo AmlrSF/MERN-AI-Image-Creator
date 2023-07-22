@@ -12,7 +12,7 @@ const Profile = () => {
     const navigate = useNavigate();
     const {id} = useParams();
     useEffect(()=>{(async()=>{
-        if(data === null){
+        if(data === undefined){
             return navigate('/');
         }else{
             try {
