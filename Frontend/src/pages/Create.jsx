@@ -51,44 +51,43 @@ const Create = () => {
           [e.target.name] : e.target.value
         })
     }
-
     const handleSurpriseMe = () => {
         const randomPrompt = getRandomPrompt(form.prompt);
         setForm({ ...form, prompt: randomPrompt });
     };
 
-      const generate = async()=>{
-        if (form.prompt) {
-            try {
-              setGeneratingImg(true);
-              const response = await fetch('http://localhost:3000/api/v1/image', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  prompt: form.prompt,
-                }),
-              });
-      
-              const data = await response.json();
-              setForm({ ...form, image: `data:image/jpeg;base64,${data.photo}` });
-            } catch (err) {
-              alert(err);
-            } finally {
-              setGeneratingImg(false);
-            }
-          } else {
-            toast.error("You must provide prompt !", {
-                position: toast.POSITION.BOTTOM_RIGHT
-              });
-          }
+  const generate = async()=>{
+    if (form.prompt) {
+        try {
+          setGeneratingImg(true);
+          const response = await fetch('http://localhost:3000/api/v1/image', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              prompt: form.prompt,
+            }),
+          });
+  
+          const data = await response.json();
+          setForm({ ...form, image: `data:image/jpeg;base64,${data.photo}` });
+        } catch (err) {
+          alert(err);
+        } finally {
+          setGeneratingImg(false);
+        }
+      } else {
+        toast.error("You must provide prompt !", {
+            position: toast.POSITION.BOTTOM_RIGHT
+          });
       }
+  }
 
-      const handleTagsChange = (event, value) => {
-        // The 'value' parameter contains the selected tags as an array
-        setForm({ ...form, tags: value });
-      };
+  const handleTagsChange = (event, value) => {
+    // The 'value' parameter contains the selected tags as an array
+    setForm({ ...form, tags: value });
+  };
   return (
     <div className='relative z-0 bg-primary'>
         <ToastContainer />
