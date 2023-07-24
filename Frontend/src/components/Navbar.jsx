@@ -69,12 +69,13 @@ const Navbar = ({noList,secondList}) => {
         }
     })();
   },[])
-  // console.log(data);
+  console.log(data);
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
 
     const [MenuBar, setMenuBar] = React.useState(null);
+
     const openMenu = Boolean(MenuBar);
     const handleMenuClick = (event) => {
       setMenuBar(event.currentTarget);
@@ -155,7 +156,7 @@ const Navbar = ({noList,secondList}) => {
               
             </ul>
             }
-        {data === undefined ?  
+        {data === null || data === undefined ?  
         <ul  className='list-none md:flex hidden  flex-row gap-2' >
           <li>
             <Link  className='border-solid border-2 p-3 rounded border-[#915EFF]' to="/Signin">SignUp</Link>
@@ -281,7 +282,7 @@ const Navbar = ({noList,secondList}) => {
             }
               <div>
                 {
-                  data === undefined ?  
+                  data === undefined || data === null ?  
 
                   <div className='flex gap-2'>
                     <Link className='border-solid border-2 border-[#915EFF] p-3 rounded ' to="/SignIn">SignUp</Link>

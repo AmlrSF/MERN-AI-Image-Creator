@@ -1,11 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {motion} from 'framer-motion';
 import { styles } from '../styles';
 import { Navbar } from '../components';
 import { textVariant } from '../utils';
+import { useNavigate } from 'react-router-dom';
+import { userContext } from '../context/context';
 
 const Browse = () => {
-
+    const {data,setData} = useContext(userContext);
+    console.log(data);
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(data == undefined || data == null){
+            return navigate('/Login');
+        } 
+        
+    },[])
     
 
   return (

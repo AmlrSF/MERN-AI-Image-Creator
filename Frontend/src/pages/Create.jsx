@@ -14,10 +14,12 @@ import { aiImageTags } from '../constants';
 import { userContext } from '../context/context';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
     const [generatingImg, setGeneratingImg] = useState(false);
     const {data,setData} = useContext(userContext);
+    const navigate = useNavigate();
     const [form,setForm] = useState({
         name:'',
         description:'',
@@ -28,7 +30,15 @@ const Create = () => {
         prompt :''
     })
 
-    const colors = ['blue-text-gradient','green-text-gradient','pink-text-gradient']
+    
+
+   
+   useEffect(()=>{
+    if(data == undefined || data == null){
+        return navigate('/Login');
+    } 
+    
+},[])
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -93,19 +103,16 @@ const Create = () => {
                 </h2>
             </motion.div>
             <motion.div 
-                            initial={{y:-100,opacity:0}} 
-                            transition={{ duration: 0.6,type:"spring",delay:0.3 ,times: [0, 0.2, 1] }} 
-                            animate={{y:0,opacity:1}}
-                            className='bg-black-100  p-8 rounded-2xl w-full items-center  flex md:flex-row  flex-col gap-10 '
-                >
-                    
+                initial={{y:-100,opacity:0}} 
+                transition={{ duration: 0.6,type:"spring",delay:0.3 ,times: [0, 0.2, 1] }} 
+                animate={{y:0,opacity:1}}
+                className='bg-black-100  p-8 rounded-2xl w-full items-center  flex md:flex-row  flex-col gap-10 '
+                >  
                     <div className='basis-[50%] '>
                          <form
                         onSubmit={handleSubmit}
                         className='w-full flex flex-col'
-                        >   
-
-                            
+                        >       
                                 <label className='flex flex-col '>
                                     <span className='text-white font-medium mb-2 mt-5'>Post Name</span>
                                     <input
