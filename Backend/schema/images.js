@@ -10,7 +10,7 @@ const ImageSchema = new Schema({
     type: String,
     required: true,
   },
-  Add_date: {
+  added_date: {
     type: Date,
     required: true,
   },
