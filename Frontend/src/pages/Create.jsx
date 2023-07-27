@@ -85,7 +85,6 @@ const Create = () => {
   }
 
   const handleTagsChange = (event, value) => {
-    // The 'value' parameter contains the selected tags as an array
     setForm({ ...form, tags: value });
   };
   return (
@@ -232,5 +231,4 @@ const Create = () => {
 </div>
   )
 }
-
 export default Create
