@@ -88,11 +88,12 @@ const Login = async(req,res)=>{
             })
         }else{
              //genrate token 
+         let {process.env} = process.env; 
         const token  = jwt.sign({
                 id:MatchUser._id,
                 username:MatchUser.username
                 },
-                process.env.secretKey,
+                secretKey,
                 {
             expiresIn: "24h"
             
