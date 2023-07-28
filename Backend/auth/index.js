@@ -13,8 +13,11 @@ const authorize = (req, res, next) => {
                 }
         ]
     })
+
+    let {secretKey} = process.env;
+    
     try {
-        const user =  jwt.verify(token,process.env.secretKey,(err,res)=>{
+        const user =  jwt.verify(token,secretKey,(err,res)=>{
             if(err) return  console.log(err);
             // console.log(res);
             req.id = res.id;
